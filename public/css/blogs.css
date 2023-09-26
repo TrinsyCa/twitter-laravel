@@ -1,0 +1,454 @@
+:root
+{
+    --theme-color: rgba(29, 155, 240);
+    --theme-color-op1: rgba(29, 155, 240,0.1);
+}
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+hr
+{
+    margin: 0.7rem 0 !important;
+}
+.stop-scroll
+{
+    overflow: hidden;
+}
+[data-bs-theme="dark"]
+{
+    --bs-body-bg:#0e0f11 !important;
+}
+.main
+{
+    display: flex !important;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.blur-bg
+{
+    min-width: 100%;
+    min-height: 100vh;
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 200;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.45s;
+}
+.blur-bg-active
+{
+    opacity: 1;
+    pointer-events: fill;
+}
+.post
+{
+    position: fixed;
+    width: 580px;
+    height: fit-content;
+    background-color:#0e0f11;
+    border-radius: 20px;
+    top: 65%;
+    left: 15%;
+    transform: translate(-50%,-50%) scale(0.1);
+    z-index: 300;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.6s;
+    border: 2px solid rgba(255,255,255,0.15);
+    box-shadow: 0 0 5px black;
+    padding: 8px 12px;
+    padding-bottom: 12px;
+    overflow: hidden;
+    user-select: none;
+}
+.postActive
+{
+    opacity: 1;
+    pointer-events: fill;
+    transform: translate(-50%,-50%) scale(1);
+    top: 40%;
+    left: 50%;
+}
+.post header
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.post header h1
+{
+    font-size: 1.6rem;
+}
+.post header button
+{
+    background-color: transparent;
+    font-weight: bold;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: 0.35s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+.post-center
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.post header button:hover
+{
+    background-color: rgba(255,255,255,0.1);
+}
+.page-detail-header
+{
+    width: 680px;
+    height: 100px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0,0,0,0.4);
+    border-right: 2px solid rgba(255,255,255,0.2);
+    border-left: 2px solid rgba(255,255,255,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    position: sticky;
+    top: 15px;
+    left: 50%;
+    transform: translate(0,-20%);
+    z-index: 100;
+    padding: 15px 15px;
+    user-select: none;
+}
+.page-detail-header h2
+{
+    font-size: 1.5rem;
+}
+.post .inputBx
+{
+    width: 100%;
+    height: fit-content;
+}
+.textareaActive
+{
+    height: 160px !important;
+}
+.post .inputBx textarea
+{
+    width: 100%;
+    height: 0;
+    max-height: 500px;
+    background-color: transparent;
+    font-size: 1.3rem;
+    border: 0;
+    outline: 0;
+    transition: 0.7s;
+    resize: none;
+}
+.post footer
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post footer .file::file-selector-button
+{
+    background-color: rgb(29, 155, 240);
+    color: white;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+.post footer .file::file-selector-button:hover
+{
+    background-color: rgb(29, 155, 240,0.86);
+}
+.blogContainer
+{
+    background-color: rgba(0,0,0,0.4);
+    border-right: 2px solid rgba(255,255,255,0.2);
+    border-left: 2px solid rgba(255,255,255,0.2);
+    width: 680px !important;
+    min-height: 180vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0;
+    margin: 0 !important;
+}
+.details
+{
+    width: 100%;
+}
+.card
+{
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    transition: 0.3s;
+    cursor: pointer;
+    user-select: none;
+}
+.card:active
+{
+    scale: 0.98;
+}
+.card-profile-side
+{
+    width: 65px;
+    height: 100%;
+}
+.card-profile-side img
+{
+    width: 84%;
+    border-radius: 50%;
+    transition: 0.35s;
+}
+.card-profile-side img:hover
+{
+    scale: 1.08;
+}
+.card-profile-side img:active
+{
+    scale: 0.98;
+}
+.card-inf
+{
+    width: 100%;
+}
+.card-body
+{
+    padding: 0 !important;
+}
+.card-detail
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.card-owner
+{
+    display: flex;
+    gap: 5px;
+}
+.options
+{
+    position: relative;
+}
+.card-detail .options .open
+{
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    font-size: 1rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    transition: 0.25s;
+}
+.card-detail .options .open:hover
+{
+    color: var(--theme-color);
+    background-color: var(--theme-color-op1);
+}
+.options .option-menu
+{
+    background-color:#0e0f11;
+    opacity: 0;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 400;
+    transition: 0.35s;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 0 10px black;
+}
+.option-menu-active
+{
+    height: 100px !important;
+    opacity: 1 !important;
+}
+.option-menu button
+{
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    padding: 8px 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+    transition: 0.25s;
+}
+.option-menu button i
+{
+    width: 20px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.option-menu .delete:hover
+{
+    background-color: red;
+}
+.option-menu .edit:hover
+{
+    background-color: var(--theme-color);
+}
+.card-img-bottom
+{
+    margin-top: 10px;
+    border-radius: 12px !important;
+    transition: 0.3s;
+    width: max-content !important;
+    max-width: 100%;
+    min-height: 300px;
+    max-height: 500px;
+    object-fit: cover;
+}
+.card-img-bottom:hover
+{
+    scale: 1.01;
+}
+.card-img-bottom:active
+{
+    scale: 0.965;
+}
+.card:hover
+{
+    background-color: rgba(255,255,255,0.05);
+}
+.card-title
+{
+    position: relative;
+    cursor: pointer;
+}
+.card-title:hover
+{
+    text-decoration: underline;
+}
+.userContainerFix
+{
+    width: 30%;
+    display: flex;
+    justify-content: end;
+    padding-right: 20px;
+}
+.userContainer
+{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2px;
+    padding: 20px 10px;
+    width: 250px;
+    position: fixed;
+}
+.userButtons
+{
+    border-radius: 100px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    width: 100%;
+}
+.userButtons:hover .userBtnsBg
+{
+    background-color: rgba(255,255,255,0.1);
+}
+.userBtnsBg
+{
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: 0.3s;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.userBtnsBg
+{
+    font-size: 1.3rem;
+}
+.userButtons .logo
+{
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+}
+.userBtnsBg i
+{
+    width: 20px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.active-menu
+{
+    font-weight: bold;
+}
+.send
+{
+    background-color: rgb(29, 155, 240);
+    color: white;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.send:hover
+{
+    background-color: rgb(29, 155, 240,0.86);
+}
+.userContainer .send
+{
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px 20px;
+}
+.text-body-secondary span:hover
+{
+    text-decoration: underline;
+}
+.blog-text
+{
+    color: rgba(255,255,255,0.82);
+    user-select: text;
+}
