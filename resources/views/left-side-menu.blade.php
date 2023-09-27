@@ -1,6 +1,6 @@
 <div class="userContainerFix">
     <div class="userContainer">
-      <a href="#" class="userButtons"><div class="userBtnsBg logo"><span>𝕏</span></div></a>
+      <a href="#" class="userButtons"><div class="userBtnsBg logo"><span><img src="/img/logo/logo-white.png" alt="𝕏"></span></div></a>
       <a href="#" class="userButtons"><div class="userBtnsBg active-menu"><i class="fa-solid fa-house"></i><span>Anasayfa</span></div></a>
       <a href="#" class="userButtons"><div class="userBtnsBg"><i class="fa-solid fa-magnifying-glass"></i><span>Keşfet</span></div></a>
       <a href="#" class="userButtons"><div class="userBtnsBg"><i class="fa-regular fa-bell"></i><span>Bildirimler</span></div></a>

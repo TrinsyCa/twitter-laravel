@@ -15,10 +15,6 @@ class Blog extends Controller
         $file = $request->file;
         $link = rand(0,999999999999999999);
 
-        if(empty($title))
-        {
-            $title = "";
-        }
         if(empty($text))
         {
             $text = "";
@@ -33,18 +29,27 @@ class Blog extends Controller
             $filename = "";
         }
 
-        BlogModel::create([
-            'text' => $text,
-            'date' => $date,
-            'file' => $filename,
-            'link' => $link,
-        ]);
+        if(empty($text) == false || empty($file) == false)
+        {
+            BlogModel::create([
+                'text' => $text,
+                'date' => $date,
+                'file' => $filename,
+                'link' => $link,
+            ]);
+        }
 
-        header("Refresh:0; url=/blogs");
+        header("Refresh:0; url=/");
     }
     public function index()
     {
         $posts = BlogModel::orderBy('id','DESC')->get();
         return view("blogs" , compact('posts'));
+    }
+    public function sil($id)
+    {
+        DB::table("blog")->where('id', $id)->delete();
+        
+        return redirect()->back();
     }
 }

@@ -10,3 +10,8 @@ function post()
     body.classList.toggle("stop-scroll");
     textarea.classList.toggle("textareaActive");
 }
+
+function deletePost(id)
+{
+    window.location.href = '/sil/' + id;
+}

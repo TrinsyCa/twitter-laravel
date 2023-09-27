@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bloglar</title>
+    <title>Anasayfa / 𝕏</title>
     
     <script src="https://kit.fontawesome.com/b40b33d160.js" crossorigin="anonymous"></script>
     <!-- Styles -->
@@ -44,7 +44,7 @@
                             <div class="options">
                               <button class="open" onclick="postSettings();" onblur="postSettings();"><i class="fa-solid fa-ellipsis"></i></button>
                               <div class="option-menu" id="option-menu">
-                                <button class="delete"><i class="fa-regular fa-trash-can"></i> Paylaşımı Sil</button>
+                                <button class="delete" onclick="deletePost({{ $post->id }})"><i class="fa-regular fa-trash-can"></i> Paylaşımı Sil</button>
                                 <button class="edit"><i class="fa-regular fa-pen-to-square"></i> Paylaşımı Düzenle</button>
                               </div>
                             </div>
@@ -64,6 +64,7 @@
             @endif
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="/scripts/post.js"></script>
     <script src="/scripts/postSettings.js"></script>
 </body>

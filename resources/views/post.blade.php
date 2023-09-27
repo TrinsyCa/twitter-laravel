@@ -1,11 +1,11 @@
-<div class="post" id="post">
+<div class="post" id="post" >
     <header>
-      <h1>Gönderi Paylaş</h1>
+      <h1>𝕏 'te Paylaş</h1>
       <button onclick="post();"><i class="fa-solid fa-x"></i></button>
     </header>
     <form action="{{ route('postBlog') }}" method="post" enctype="multipart/form-data">
       @csrf
-      <input type="hidden" name="date" value="<? echo date("d.m.Y"); ?>">
+      <input type="hidden" name="date" value="<?php echo date('d.m.Y'); ?>">
       <div class="post-center">
         <div class="card-profile-side">
           <img src="/img/6493862841241912" alt="@TrinsyCa">
