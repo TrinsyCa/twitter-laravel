@@ -16,7 +16,10 @@
       </div>
       <hr>
       <footer>
-        <input type="file" name="file" class="file">
+        <label class="file">
+          <input type="file" name="file" class="file_upload">
+          Dosya Seç
+        </label>
         <input type="submit" class="send" value="Gönder">
       </footer>
     </form>
