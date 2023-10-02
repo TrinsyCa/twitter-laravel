@@ -1,7 +1,7 @@
 :root
 {
     --theme-color: rgba(29, 155, 240);
-    --theme-color-op1: rgba(29, 155, 240,0.1);
+    --theme-color-op1: rgba(29, 155, 240,0.15);
 }
 ::-webkit-scrollbar
 {
@@ -17,6 +17,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
+    border: 0;
+    outline: 0;
 }
 hr
 {
@@ -143,7 +145,8 @@ hr
 {
     font-size: 1.5rem;
 }
-.post .inputBx
+.post .inputBx,
+.card .inputBx
 {
     width: 100%;
     height: fit-content;
@@ -152,7 +155,8 @@ hr
 {
     height: 160px !important;
 }
-.post .inputBx textarea
+.post .inputBx textarea,
+.card .inputBx textarea
 {
     width: 100%;
     height: 0;
@@ -164,27 +168,41 @@ hr
     transition: 0.7s;
     resize: none;
 }
-.post footer
+.card .inputBx textarea
+{
+    height: 100px;
+}
+.card form
+{
+    width: 100%;
+}
+.post footer,
+.card footer
 {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.post footer .file::file-selector-button
+.post footer .file
+.card footer .file
 {
-    background-color: rgb(29, 155, 240);
-    color: white;
-    border-radius: 12px;
+    color: var(--theme-color);
+    border-radius: 50%;
     border: none;
     outline: none;
     transition: 0.3s;
     font-size: 0.9rem;
     font-weight: bold;
-    padding: 5px 15px;
+    padding: 10px;
 }
-.post footer .file::file-selector-button:hover
+.post footer .file:hover,
+.card footer .file:hover
 {
-    background-color: rgb(29, 155, 240,0.86);
+    background-color: var(--theme-color-op1);
+}
+.file_upload
+{
+    display: none;
 }
 .blogContainer
 {
@@ -197,7 +215,7 @@ hr
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 12px 0;
+    padding: 4px 6px !important;
     margin: 0 !important;
 }
 .details
@@ -357,7 +375,7 @@ hr
 }
 .userContainerFix
 {
-    width: 33%;
+    width: 30%;
     display: flex;
     justify-content: end;
     padding-right: 20px;
@@ -459,4 +477,119 @@ hr
 {
     color: rgba(255,255,255,0.82);
     user-select: text;
+}
+.userProfiles
+{
+    border-radius: 100px;
+    position: fixed;
+    margin-top: 30px;
+    bottom: 5%;
+    width: 240px;
+}
+.myprofile
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+}
+.userProfileCon
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+    width: 100%;
+    background-color: black !important;
+    transition: 0.35s;
+}
+.userProfileCon:hover
+{
+    background-color: rgba(255,255,255,0.1) !important;
+}
+.myprofileContainer
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.myprofileDetail
+{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    text-align: start;
+    width: 100%;
+}
+.myprofileDetail img
+{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.myprofileDetail h4
+{
+    font-size: 1rem;
+    margin: 0;
+}
+.myprofileDetail p
+{
+    font-size: 0.9rem;
+    margin: 0;
+}
+.myprofileDetail .nameBox
+{
+    display: flex;
+    flex-direction: column;
+}
+.userprofilesContainer
+{
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+    border-radius: 20px;
+    background-color: black;
+    width: 260px;
+    box-shadow: 0 0 6px rgba(255,255,255,0.8);
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.25s;
+}
+.userprofilesContainer-active
+{
+    opacity: 1;
+    pointer-events: all;
+    transform: translate(-50%,-80%);
+}
+.userprofileBtns
+{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.userprofileBtns button
+{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    transition: 0.25s;
+    padding: 8px 12px;
+}
+.userprofileBtns button:hover
+{
+    background-color: rgba(255,255,255,0.1);
+}
+.userprofilesContainer i
+{
+    rotate: 90deg;
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    transform: translate(-50%,-49%);
+    color: black;
 }

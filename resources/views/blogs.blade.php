@@ -27,10 +27,34 @@
             <header class="page-detail-header">
                 <h2>Anasayfa</h2>
             </header>
+            <div class="details">
+              <div class="card mb-2">
+                <form action="{{ route('postBlog') }}" method="post" enctype="multipart/form-data">
+                  @csrf
+                  <input type="hidden" name="date" value="<?php echo date('d.m.Y'); ?>">
+                  <div class="post-center">
+                    <div class="card-profile-side">
+                      <img src="/img/6493862841241912" alt="@TrinsyCa">
+                    </div>
+                    <div class="inputBx">
+                      <textarea name="text" id="textarea" placeholder="Neler oluyor?" cols="30" rows="10"></textarea><br>
+                    </div>
+                  </div>
+                  <hr>
+                  <footer>
+                    <label class="file">
+                      <input type="file" name="file" class="file_upload">
+                      Dosya Seç
+                    </label>
+                    <input type="submit" class="send" value="Gönder">
+                  </footer>
+                </form>
+              </div>
+            </div>
             @if($posts ?? '')
             @foreach ($posts as $post)
             <div class="details">
-                <div class="card mb-3">
+                <div class="card mb-2">
                   <div class="card-profile-side">
                     <img src="/img/6493862841241912" alt="@TrinsyCa">
                   </div>
@@ -42,8 +66,8 @@
                               <p class="card-text"><small class="text-body-secondary"><span>@TrinsyCa</span>・{{ $post->date }}</small></p>
                             </div>
                             <div class="options">
-                              <button class="open" onclick="postSettings();" onblur="postSettings();"><i class="fa-solid fa-ellipsis"></i></button>
-                              <div class="option-menu" id="option-menu">
+                              <button class="open" onclick="postSettings('{{ $post->id }}');" onblur="postSettings('{{ $post->id }}');"><i class="fa-solid fa-ellipsis"></i></button>
+                              <div class="option-menu" id="option-menu-{{ $post->id }}">
                                 <button class="delete" onclick="deletePost({{ $post->id }})"><i class="fa-regular fa-trash-can"></i> Paylaşımı Sil</button>
                                 <button class="edit"><i class="fa-regular fa-pen-to-square"></i> Paylaşımı Düzenle</button>
                               </div>
