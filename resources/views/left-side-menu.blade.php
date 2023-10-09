@@ -1,6 +1,7 @@
 <div class="userContainerFix">
     <div class="userContainer">
       <a href="/" class="userButtons"><div class="userBtnsBg logo"><span><img src="/img/logo/logo-white.png" alt="𝕏"></span></div></a>
+<<<<<<< HEAD
       <a href="/" class="userButtons"><div class="userBtnsBg" id="mainpage-menu-btn"><i class="fa-solid fa-house"></i><span>Anasayfa</span></div></a>
       <a href="#" class="userButtons"><div class="userBtnsBg" id="search-menu-btn"><i class="fa-solid fa-magnifying-glass"></i><span>Keşfet</span></div></a>
       <a href="#" class="userButtons"><div class="userBtnsBg" id="notifications-menu-btn"><i class="fa-regular fa-bell"></i><span>Bildirimler</span></div></a>
@@ -9,6 +10,16 @@
       <a href="#" class="userButtons"><div class="userBtnsBg" id="save-menu-btn"><i class="fa-regular fa-bookmark"></i><span>Kaydedilenler</span></div></a>
       <a href="/{{ session('username') }}" class="userButtons"><div class="userBtnsBg" id="profile-menu-btn"><i class="fa-regular fa-user"></i><span>Profil</span></div></a>
       <a href="#" class="userButtons"><div class="userBtnsBg" id="more-options-menu-btn"><i class="fa-solid fa-ellipsis"></i><span>Daha Fazla</span></div></a>
+=======
+      <a href="/" class="userButtons"><div class="userBtnsBg active-menu"><i class="fa-solid fa-house"></i><span>Anasayfa</span></div></a>
+      <a href="#" class="userButtons"><div class="userBtnsBg"><i class="fa-solid fa-magnifying-glass"></i><span>Keşfet</span></div></a>
+      <a href="#" class="userButtons"><div class="userBtnsBg"><i class="fa-regular fa-bell"></i><span>Bildirimler</span></div></a>
+      <a href="#" class="userButtons"><div class="userBtnsBg"><i class="fa-regular fa-message"></i><span>Mesajlar</span></div></a>
+      <a href="#" class="userButtons"><div class="userBtnsBg"><i class="fa-solid fa-hashtag"></i><span>Listeler</span></div></a>
+      <a href="#" class="userButtons"><div class="userBtnsBg"><i class="fa-regular fa-bookmark"></i><span>Kaydedilenler</span></div></a>
+      <a href="/{{ session('username') }}" class="userButtons"><div class="userBtnsBg"><i class="fa-regular fa-user"></i><span>Profil</span></div></a>
+      <a href="#" class="userButtons"><div class="userBtnsBg"><i class="fa-solid fa-ellipsis"></i><span>Daha Fazla</span></div></a>
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
       <button onclick="post();" class="send">Gönder</button>
       <div class="userProfiles">
         <div class="userprofilesContainer" id="userProfiles" >

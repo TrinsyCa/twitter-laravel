@@ -254,8 +254,13 @@ hr
     background-color: rgba(0,0,0,0.4);
     border-right: 2px solid rgba(255,255,255,0.2);
     border-left: 2px solid rgba(255,255,255,0.2);
+<<<<<<< HEAD
     width: 620px !important;
     min-height: 100vh;
+=======
+    width: 680px !important;
+    min-height: 140vh;
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
     position: relative;
     display: flex;
     flex-direction: column;
@@ -304,7 +309,11 @@ hr
     display: flex;
     justify-content: space-between;
     width: 100%;
+<<<<<<< HEAD
     height: 30px;
+=======
+    height: 28px;
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
 }
 .card-owner
 {
@@ -444,10 +453,13 @@ hr
     position: relative;
     cursor: pointer;
     margin: 0 !important;
+<<<<<<< HEAD
     transition: 0.15s;
     text-decoration: none;
     color: white !important;
     height: fit-content;
+=======
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
 }
 .card-title-link::after
 {
@@ -474,7 +486,11 @@ hr
 }
 .userContainerFix
 {
+<<<<<<< HEAD
     width: 32.5%;
+=======
+    width: 28%;
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
     display: flex;
     justify-content: end;
     padding-right: 10px;
@@ -716,6 +732,7 @@ hr
     border-bottom: 12px solid rgba(58,58,58);
     border-right: 7px solid transparent;
     border-left: 7px solid transparent;
+<<<<<<< HEAD
 }
 .content-header
 {
@@ -844,4 +861,6 @@ hr
 {
     color: var(--retweet-color);
     background-color: var(--retweet-color-op1);
+=======
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
 }

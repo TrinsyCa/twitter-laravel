@@ -21,10 +21,17 @@ class Tweets extends Migration
             $table->string("file");
             $table->string("date");
 
+<<<<<<< HEAD
             $table->longText("like")->nullable();
             $table->longText("review")->nullable();
             $table->longText("retweet")->nullable();
             $table->bigInteger("view")->nullable();
+=======
+            $table->longText("like");
+            $table->longText("review");
+            $table->longText("retweet");
+            $table->bigInteger("view");
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
             $table->timestamps();
         });
     }

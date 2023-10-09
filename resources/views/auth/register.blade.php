@@ -12,12 +12,21 @@
                         @csrf
 
                         <div class="row mb-3">
+<<<<<<< HEAD
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name Surname') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
 
                                 @error('name')
+=======
+                            <label for="myname" class="col-md-4 col-form-label text-md-end">{{ __('Name Surname') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="myname" type="myname" class="form-control @error('myname') is-invalid @enderror" name="myname" value="{{ old('myname') }}" required autocomplete="myname">
+
+                                @error('myname')
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

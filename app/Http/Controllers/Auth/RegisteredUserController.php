@@ -36,14 +36,22 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+<<<<<<< HEAD
             'name' => ['required', 'string', 'max:255'],
+=======
+            'myname' => ['required', 'string', 'max:255'],
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
+<<<<<<< HEAD
             'name' => $request->name,
+=======
+            'name' => $request->myname,
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -60,8 +68,15 @@ class RegisteredUserController extends Controller
 
             $userId = $user->id;
 
+<<<<<<< HEAD
             Session::put('userId',$userId);
         }
+=======
+
+            Session::put('userId',$userId);
+        }
+
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
         return redirect("/");
     }
 }

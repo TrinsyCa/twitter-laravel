@@ -44,21 +44,31 @@ class Profile extends Controller
     
                 $postId = $post->userId;
                 $postUserId = $post->user->id;
+<<<<<<< HEAD
 
                 $post->myPost = false;
                 $user->myProfile = false;
                 $post->zIndex = 100 + $postId;
                 $user->profileLink = "/".$post->user->username;
+=======
+                $post->myPost = false;
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
     
                 if ($post->userId == $myUserId)
                 {
                     $post->myPost = true;
+<<<<<<< HEAD
                     $user->myProfile = true;
+=======
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
                 }
                 else
                 {
                     $post->myPost = false;
+<<<<<<< HEAD
                     $user->myProfile = false;
+=======
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
                 }
                 if (in_array($post->user->id, $bans)) {
                     $post->banned = true;

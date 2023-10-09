@@ -69,8 +69,11 @@ class Blog extends Controller
             $postId = $post->userId;
             $postUserId = $post->user->id;
             $post->myPost = false;
+<<<<<<< HEAD
             $post->zIndex = 100 + $postId;
             $post->user->profileLink = "/".$post->user->username;
+=======
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
 
             if ($post->userId == $myUserId)
             {

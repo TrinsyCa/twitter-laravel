@@ -10,7 +10,10 @@
     <!-- Styles -->
     <link rel="stylesheet" href="/css/blogs.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="/css/profile.css">
+=======
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
     <!-- Styles -->
 
     <!-- Google Fonts -->
@@ -25,6 +28,7 @@
     <div class="main">
       @include("left-side-menu")
         <div class="container blogContainer">
+<<<<<<< HEAD
             <header class="page-detail-header content-header" onclick="goTopMenu();">
                 <div class="side-left">
                   <button onclick="goBack();" class="back-btn">
@@ -122,6 +126,33 @@
                     </div>
                   </div>
                 </div>
+=======
+            <header class="page-detail-header">
+                <h2>{{ $user->name }}</h2>
+            </header>
+            <div class="details">
+              <div class="card mb-2 form-card">
+                <form action="{{ route('postBlog') }}" method="post" enctype="multipart/form-data">
+                  @csrf
+                  <input type="hidden" name="date" value="<?php echo date('d.m.Y'); ?>">
+                  <div class="post-center">
+                    <div class="card-profile-side">
+                      <img src="/img/profile.jpeg" alt="@TrinsyCa">
+                    </div>
+                    <div class="inputBx">
+                      <textarea name="text" id="textarea" placeholder="Neler oluyor?" cols="30" rows="10"></textarea><br>
+                    </div>
+                  </div>
+                  <hr>
+                  <footer>
+                    <label class="file">
+                      <input type="file" name="file" class="file_upload">
+                      <i class="fa-regular fa-image"></i>
+                    </label>
+                    <input type="submit" class="send" value="Gönder">
+                  </footer>
+                </form>
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
               </div>
             </div>
             @if($posts ?? '' && $user->banned == false)
@@ -130,6 +161,7 @@
                 <div class="details">
                   <div class="card mb-2">
                       <div class="card-profile-side">
+<<<<<<< HEAD
                         <a href="{{ $user->profileLink }}">
                           @if($post->user->profilepic)
                             <img src="/img/{{ $post->user->profilepic }}" alt="{{ "@".$post->user->username }}">
@@ -137,20 +169,36 @@
                             <img src="/img/profile.jpeg" alt="{{ "@".$post->user->username }}">
                           @endif
                         </a>
+=======
+                        @if($post->user->profilepic)
+                          <img src="/img/{{ $post->user->profilepic }}" alt="{{ "@".$post->user->username }}" onclick="goProfile('{{ $post->user->username }}')">
+                        @else
+                          <img src="/img/profile.jpeg" alt="{{ "@".$post->user->username }}" onclick="goProfile('{{ $post->user->username }}')">
+                        @endif
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
                       </div>
                       <div class="card-inf">
                           <div class="card-body">
                               <div class="card-detail">
                                   <div class="card-owner">
+<<<<<<< HEAD
                                       <a href="{{ $user->profileLink }}" class="card-title-link">
                                         <h5 class="card-title" >{{ $post->user->name ?? '' }}</h5>
                                       </a>
                                       <p class="card-text"><small class="grey-color"><a class="username grey-color" href="{{ $user->profileLink }}"><span>{{ "@".$post->user->username }}</span></a>・{{ $post->date }}</small></p>
+=======
+                                      <h5 class="card-title" onclick="goProfile('{{ $post->user->username }}')">{{ $post->user->name ?? '' }}</h5>
+                                      <p class="card-text"><small class="text-body-secondary"><span onclick="goProfile('{{ $post->user->username }}')">{{ "@".$post->user->username }}</span>・{{ $post->date }}</small></p>
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
                                   </div>
                                   @if($post->myPost == true)
                                     <div class="options">
                                       <button class="open" onclick="postSettings('{{ $post->id }}');" onblur="postSettings('{{ $post->id }}');"><i class="fa-solid fa-ellipsis"></i></button>
+<<<<<<< HEAD
                                       <div class="option-menu" id="option-menu-{{ $post->id }}" style="z-index: {{ $post->zIndex }};">
+=======
+                                      <div class="option-menu" id="option-menu-{{ $post->id }}">
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
                                           <button class="delete" onclick="deletePost({{ $post->id }})"><i class="fa-regular fa-trash-can"></i> Paylaşımı Sil</button>
                                           <button class="edit"><i class="fa-regular fa-pen-to-square"></i> Paylaşımı Düzenle</button>
                                       </div>
@@ -158,7 +206,11 @@
                                   @else
                                     <div class="options">
                                       <button class="open" onclick="postSettings('{{ $post->id }}');" onblur="postSettings('{{ $post->id }}');"><i class="fa-solid fa-ellipsis"></i></button>
+<<<<<<< HEAD
                                       <div class="option-menu" id="option-menu-{{ $post->id }}" style="z-index: {{ $post->zIndex }};">
+=======
+                                      <div class="option-menu" id="option-menu-{{ $post->id }}">
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
                                           <button><i class="fa-solid fa-circle-exclamation"></i> Gönderiyi şikayet et</button>
                                           <button onclick="banUser('{{ $post->user->id }}')"><i class="fa-solid fa-ban"></i> {{ "@".$post->user->username }} adlı kişiyi engelle</button>
                                       </div>
@@ -189,6 +241,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="/scripts/main.js"></script>
+<<<<<<< HEAD
     <script src="/scripts/profile.js"></script>
     @if($user->myProfile == true)
     <script>
@@ -197,5 +250,7 @@
       userBtnBg.classList.add("active-menu");
     </script>
     @endif
+=======
+>>>>>>> 1a2dc4c29dc69b83864711bea111e384d6f0d513
 </body>
 </html>
