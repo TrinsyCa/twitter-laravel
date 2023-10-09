@@ -12,20 +12,31 @@ class UserModel extends Model implements Authenticatable
     use HasFactory,AuthenticatableTrait;
     protected $table = "users";
     protected $fillable = [
-        "username",
-        "password",
-        "name_surname",
-        "about",
-        "website",
-        "birthday",
-        "email",
-        "phone",
-        "location",
-        "country",
-        "gender",
-        "premium",
-        "confirm",
-        "theme"
+        'id',
+
+        'email',
+        'phone',
+        'password',
+        'username',
+        'name',
+        'country',
+        'gender',
+        
+        'profile-pic',
+        'banner',
+        'about',
+        'birthday',
+        'location',
+        'website',
+        'confirm',
+        'notifications',
+        
+        'followers',
+        'follows',
+        'ban',
+
+        'created_at',
+        'updated_at',
     ];
 
     public function getAuthPassword()

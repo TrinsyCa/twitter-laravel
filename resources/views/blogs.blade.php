@@ -24,17 +24,17 @@
     <div class="main">
       @include("left-side-menu")
         <div class="container blogContainer">
-            <header class="page-detail-header">
+            <header class="page-detail-header" onclick="refresh();">
                 <h2>Anasayfa</h2>
             </header>
             <div class="details">
-              <div class="card mb-2">
+              <div class="card mb-2 form-card">
                 <form action="{{ route('postBlog') }}" method="post" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" name="date" value="<?php echo date('d.m.Y'); ?>">
                   <div class="post-center">
                     <div class="card-profile-side">
-                      <img src="/img/6493862841241912" alt="@TrinsyCa">
+                      <img src="/img/profile.jpeg" alt="@TrinsyCa">
                     </div>
                     <div class="inputBx">
                       <textarea name="text" id="textarea" placeholder="Neler oluyor?" cols="30" rows="10"></textarea><br>
@@ -44,7 +44,7 @@
                   <footer>
                     <label class="file">
                       <input type="file" name="file" class="file_upload">
-                      Dosya Seç
+                      <i class="fa-regular fa-image"></i>
                     </label>
                     <input type="submit" class="send" value="Gönder">
                   </footer>
@@ -53,43 +53,83 @@
             </div>
             @if($posts ?? '')
             @foreach ($posts as $post)
+            @if($post->banned == false)
             <div class="details">
-                <div class="card mb-2">
+              <div class="card mb-2">
                   <div class="card-profile-side">
-                    <img src="/img/6493862841241912" alt="@TrinsyCa">
+                    <a href="{{ $post->user->profileLink }}">
+                      @if($post->user->profilepic)
+                        <img src="/img/{{ $post->user->profilepic }}" alt="{{ "@".$post->user->username }}">
+                      @else
+                        <img src="/img/profile.jpeg" alt="{{ "@".$post->user->username }}">
+                      @endif
+                    </a>
                   </div>
                   <div class="card-inf">
-                    <div class="card-body">
-                        <div class="card-detail">
-                            <div class="card-owner">
-                              <h5 class="card-title">Ömer İslamoğlu</h5>
-                              <p class="card-text"><small class="text-body-secondary"><span>@TrinsyCa</span>・{{ $post->date }}</small></p>
-                            </div>
-                            <div class="options">
-                              <button class="open" onclick="postSettings('{{ $post->id }}');" onblur="postSettings('{{ $post->id }}');"><i class="fa-solid fa-ellipsis"></i></button>
-                              <div class="option-menu" id="option-menu-{{ $post->id }}">
-                                <button class="delete" onclick="deletePost({{ $post->id }})"><i class="fa-regular fa-trash-can"></i> Paylaşımı Sil</button>
-                                <button class="edit"><i class="fa-regular fa-pen-to-square"></i> Paylaşımı Düzenle</button>
+                      <div class="card-body">
+                          <div class="card-detail">
+                              <div class="card-owner">
+                                  <a href="{{ $post->user->profileLink }}" class="card-title-link">
+                                    <h5 class="card-title" >{{ $post->user->name ?? '' }}</h5>
+                                  </a>
+                                  <p class="card-text"><small class="grey-color"><a class="username grey-color" href="{{ $post->user->profileLink }}"><span>{{ "@".$post->user->username }}</span></a>・{{ $post->date }}</small></p>
                               </div>
-                            </div>
-                        </div>
-                        <p class="card-text blog-text">{{ $post->text }}</p>
+                              @if($post->myPost == true)
+                                <div class="options">
+                                  <button class="open" onclick="postSettings('{{ $post->id }}');" onblur="postSettings('{{ $post->id }}');"><i class="fa-solid fa-ellipsis"></i></button>
+                                  <div class="option-menu" id="option-menu-{{ $post->id }}" style="z-index: {{ $post->zIndex }};">
+                                      <button class="delete" onclick="deletePost({{ $post->id }})"><i class="fa-regular fa-trash-can"></i> Paylaşımı Sil</button>
+                                      <button class="edit"><i class="fa-regular fa-pen-to-square"></i> Paylaşımı Düzenle</button>
+                                  </div>
+                                </div>
+                              @else
+                                <div class="options">
+                                  <button class="open" onclick="postSettings('{{ $post->id }}');" onblur="postSettings('{{ $post->id }}');"><i class="fa-solid fa-ellipsis"></i></button>
+                                  <div class="option-menu" id="option-menu-{{ $post->id }}" style="z-index: {{ $post->zIndex }};">
+                                      <button><i class="fa-solid fa-circle-exclamation"></i> Gönderiyi şikayet et</button>
+                                      <button onclick="banUser('{{ $post->user->id }}')"><i class="fa-solid fa-ban"></i> {{ "@".$post->user->username }} adlı kişiyi engelle</button>
+                                  </div>
+                                </div>
+                              @endif
+                          </div>
+                          <p class="card-text blog-text">{!! nl2br(e($post->text)) !!}</p>
                       </div>
                       @if(!empty($post->file))
-                      <img src="/img/{{ $post->file }}" class="card-img-bottom" alt="...">
+                        <div class="file-box">
+                          <img src="/img/{{ $post->file }}" class="card-img-bottom">
+                          <img src="/img/{{ $post->file }}" class="card-img-bottom-bg">
+                        </div>
                       @endif
                       <div class="card-extensions">
-                        
+                          <div class="reviews do-ext">
+                            <i class="fa-regular fa-comment"></i>
+                            <span id="review-number">1.424</span>
+                          </div>
+                          <div class="retweet do-ext">
+                            <i class="fa-solid fa-retweet"></i>
+                            <span id="retweet-number">1.424</span>
+                          </div>
+                          <div class="like do-ext">
+                            <i class="fa-regular fa-heart"></i>
+                            <span id="heart-number">1.424</span>
+                          </div>
+                          <div class="statistic do-ext">
+                            
+                          </div>
+                          <div class="send-options do-ext">
+
+                          </div>
                       </div>
                   </div>
-                </div>
-            </div>
+              </div>
+          </div>
+            @endif
             @endforeach
             @endif
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="/scripts/post.js"></script>
-    <script src="/scripts/postSettings.js"></script>
+    <script src="/scripts/main.js"></script>
+    <script src="/scripts/homepage.js"></script>
 </body>
 </html>

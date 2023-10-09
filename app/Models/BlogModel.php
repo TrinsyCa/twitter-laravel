@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BlogModel extends Model
 {
     use HasFactory;
-    protected $table = "blog";
-    protected $fillable = ["text","file","link","date","created_at","updated_at"];
+    protected $table = "tweets";
+    protected $fillable = ["userId","text","file","link","date","created_at","updated_at"];
 }
